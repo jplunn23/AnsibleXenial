@@ -7,3 +7,28 @@ check the existing permissions by the using the following command git ls-files -
 Now git bash has command to update the file permission to execute looks like :D git update-index --chmod=+x 'name-of-shell-script'
 check the file permission again git ls-files --stage ... now the file permissions will be like 100755
 Now check-in the files back to github with new permissions git commit -m "made a file executable" and push the code to repo git push
+
+Different Approaches: Git Pull force overwrite:
+When you have uncommitted local changes and still want to pull a new version from the remote server, your use case typically falls into one of the following scenarios. Either:
+
+you don't care about the local changes and want to overwrite them,
+you care about the changes very much and would like to apply them after the remote changes,
+you want to download the remote modifications but not apply them yet
+Each of the approaches requires a different solution.
+
+You Don't Care About the Local Changes
+In this case, you just want to drop all the uncommitted local changes. Perhaps you modified a file to experiment, but you no longer need the modification. All you care about is being up to date with the upstream.
+
+This means that you add one more step between fetching the remote changes and merging them. This step will reset the branch to its unmodified state, thus allowing git merge to work.
+
+git fetch
+git reset --hard HEAD
+git merge origin/$CURRENT_BRANCH
+If you don't want to type the branch name every time you run this command, Git has a nice shortcut pointing to the upstream branch: @{u}. An upstream branch is the branch in the remote repository that you push to and fetch from.
+
+This is how the above commands would look like with the shortcut:
+
+git fetch
+git reset --hard HEAD
+git merge '@{u}'
+We are quoting the shortcut in the example to prevent the shell from interpreting it.
