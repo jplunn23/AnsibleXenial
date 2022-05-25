@@ -1,0 +1,9 @@
+The solution :
+
+Most of the folks on Windows working with git repo’s use windows git bash for doing git check-ins and check-outs to/from from git repo…. if you are already not using it i will highly recommend use it… pretty neat tool for windows os.
+
+Navigate to the .sh file for which permissions have to be changed to execute through gitbash
+check the existing permissions by the using the following command git ls-files --stage the command will show you the current file permissions like 100644
+Now git bash has command to update the file permission to execute looks like :D git update-index --chmod=+x 'name-of-shell-script'
+check the file permission again git ls-files --stage ... now the file permissions will be like 100755
+Now check-in the files back to github with new permissions git commit -m "made a file executable" and push the code to repo git push
