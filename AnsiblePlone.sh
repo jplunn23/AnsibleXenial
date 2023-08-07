@@ -1,6 +1,7 @@
 sudo apt-get update
 # sudo python --version
-sudo apt-get install python-pip
+sudo apt-get install -y python-pip
+sudo apt-get install -y sshpass
 sudo pip install virtualenv
 cd ~
 virtualenv xsap
