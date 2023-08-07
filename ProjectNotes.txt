@@ -1,2 +1,7 @@
 To install Semaphore:
 https://techviewleo.com/run-ansible-semaphore-web-ui-on-linux-using-snap/?expand_article=1
+sudo semaphore user add --admin \
+--login admin \
+--name=admin \
+--email=admin@example.com \
+--password=PASSWORD
